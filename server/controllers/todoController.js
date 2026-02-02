@@ -6,20 +6,21 @@ const getAllTodos = async (req, res) => {
 };
 
 const addTodo = async (req, res) => {
-  const todo = await todoModel.createTodo(req.body.title);
-  res.status(201).json(todo);
+    const title = req.body.title;
+  const todo = await todoModel.createTodo(title);
+  res.json(todo);
 };
 
 const toggleTodo = async (req, res) => {
-  const todo = await todoModel.updateTodo(
-    req.params.id,
-    req.body.completed
-  );
+    const id = req.params.id;
+    const completed = req.body.completed;
+  const todo = await todoModel.updateTodo(id, completed);
   res.json(todo);
 };
 
 const removeTodo = async (req, res) => {
-  await todoModel.deleteTodo(req.params.id);
+    const id = req.params.id;
+  await todoModel.deleteTodo(id);
   res.sendStatus(204);
 };
 
