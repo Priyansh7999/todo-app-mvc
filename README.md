@@ -11,24 +11,15 @@ The View handles everything users see and interact with directly. View code is m
 The Controller acts as a bridge between the Model and the View, receiving user input and deciding what to do with it. It’s the brains of the application that tie together the Model and the View.
 
 # EXAMPLE - Todo List App
-A simple full-stack **Todo List application** built with:
-- **Frontend:** React + Vite
-- **Backend:** Node.js + Express (MVC architecture)
-- **Database:** PostgreSQL
-
-## Architecture Overview
-1. Model → Handles database queries
-2. Controller → Handles business logic
-3. Routes → Defines API endpoints
-4. View → React frontend
-
-## Features
-
-- Add new todos
-- View all todos
+A simple **Todo List application** where :
+- Users can add todos
+- See a list of todos
 - Mark todos as completed
 - Delete todos
-- REST API with MVC pattern
+
+The project has two separate parts:
+- Frontend → React(View)
+- Backend → Express + PostgreSQL (Model + Controller + Routes)
 
 ## Database Setup (PostgreSQL)
 
@@ -58,6 +49,23 @@ DB_NAME=your_database_name
 DB_PASSWORD=your_password
 DB_PORT=5432
 ```
+
+## Model Layer (server/models/todoModes.js)
+- Talk directly to PostgreSQL
+- Run SQL queries
+- Return data
+
+## Controller Layer (server/controllers/todoController.js)
+- Receive requests from routes
+- Call model functions
+- Handle logic
+- Send data back to frontend
+
+## View 
+- Showing the UI (input, list, buttons)
+- Handling user actions (click, type)
+- Sending requests to the backend
+- Displaying backend data
 
 ## How to Run the Application
 1. Run Backend
