@@ -49,7 +49,17 @@ DB_NAME=your_database_name
 DB_PASSWORD=your_password
 DB_PORT=5432
 ```
+## Database Connection
 
+```js
+const pool = new Pool({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+});
+```
 ## Model Layer (server/models/todoModes.js)
 - Talk directly to PostgreSQL
 - Run SQL queries
@@ -67,6 +77,14 @@ DB_PORT=5432
 - Sending requests to the backend
 - Displaying backend data
 
+## API Endpoints
+| Method | Endpoint         | Description        |
+| ------ | ---------------- | ------------------ |
+| GET    | `/api/todos`     | Fetch all todos    |
+| POST   | `/api/todos`     | Create a new todo  |
+| PUT    | `/api/todos/:id` | Update todo status |
+| DELETE | `/api/todos/:id` | Delete a todo      |
+
 ## How to Run the Application
 1. Run Backend
    ```bash
@@ -81,11 +99,3 @@ DB_PORT=5432
     npm install
     npm run dev
     ```
-
-## API Endpoints
-| Method | Endpoint         | Description        |
-| ------ | ---------------- | ------------------ |
-| GET    | `/api/todos`     | Fetch all todos    |
-| POST   | `/api/todos`     | Create a new todo  |
-| PUT    | `/api/todos/:id` | Update todo status |
-| DELETE | `/api/todos/:id` | Delete a todo      |
